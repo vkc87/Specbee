@@ -1,0 +1,7 @@
+sb_site_location.configuration:
+  path: '/admin/config/development/sb-site-location-configuration'
+  defaults:
+    _form: '\Drupal\sb_site_location\Form\LocationConfigurationForm'
+    _title: 'Specbee Site Location Settings'
+  requirements:
+    _permission: 'administer site configuration'

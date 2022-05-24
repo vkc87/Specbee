@@ -1,0 +1,4 @@
+services:
+  sb_site_location.timezone_manager:
+    class: Drupal\sb_site_location\TimeZoneManager
+    arguments: ["@date.formatter"]

@@ -1,0 +1,4 @@
+sb_site_location.configuration:
+  route_name: sb_site_location.configuration
+  title: 'Specbee Site Location'
+  base_route: sb_site_location.configuration

@@ -1,0 +1,5 @@
+sb_site_location.configuration:
+  title: 'Specbee Site Location'
+  description: 'Configure location and timezone.'
+  parent: system.admin_config_services
+  route_name: sb_site_location.configuration
