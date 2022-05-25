@@ -5,7 +5,7 @@
 *
 */
 #}
-<div class="time-container">
+<div class="time-container {{'now'|date('d-m-y-h-i-s')}}">
   <div class="site-location">
     <span>{{"Site Location and Time:"|t}}
     {% if data.country %}
