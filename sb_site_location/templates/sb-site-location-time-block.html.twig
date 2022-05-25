@@ -7,20 +7,20 @@
 #}
 <div class="time-container">
   <div class="site-location">
-    <span>{{"Site Location and Time:"}}
+    <span>{{"Site Location and Time:"|t}}
     {% if data.country %}
       <span class="country">
-        {{'Country'|t }} {{ data.country }}
+        {{'Country: '|t }} {{ data.country }}
       </span>
     {% endif %}
     {% if data.city %}
       <span class="city">
-        {{'City'|t }} {{ data.city }}
+        {{'City: '|t }} {{ data.city }}
       </span>
     {% endif %}
     {% if data.time %}
       <span class="time">
-        {{ data.time }}
+        {{'Time:'|t}} {{ data.time }}
       </span>
     {% endif %}
   </div>
