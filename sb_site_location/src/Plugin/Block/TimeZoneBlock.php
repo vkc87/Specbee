@@ -8,6 +8,7 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\sb_site_location\TimeZoneManager;
 use Drupal\Core\Cache\Cache;
+use Drupal\Core\Datetime\DateFormatterInterface;
 
 /**
  * Provides a block for displaying country, city and time.
@@ -96,12 +97,5 @@ class TimeZoneBlock extends BlockBase implements ContainerFactoryPluginInterface
       "#data" => $data,
      ];
   }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getCacheTags() {
-    $time = $this->timezoneServices->getTime($timezone);
-    return Cache::mergeTags(parent::getCacheTags(), [$time]);
 
 }

@@ -5,28 +5,29 @@
  * Hook implementation for Site Location module.
  */
 
- /**
-  * Implements hook_theme().
-  */
+/**
+ * Implements hook_theme().
+ */
 
-  function sb_site_location_theme($existing, $type, $theme, $path) {
-    return [
-      'sb_site_location_time_block' => [
-        'variables' => [
-          'data' => [],
-        ],
-        'template' => 'sb-site-location-time-block',
+function sb_site_location_theme($existing, $type, $theme, $path) {
+  return [
+    'sb_site_location_time_block' => [
+      'variables' => [
+        'data' => [],
+      ],
+      'template' => 'sb-site-location-time-block',
     ],
-    ];
-  }
+  ];
+}
 
 /**
  * Implements hook_preprocess_block.
  */
 
- function sb_site_location_preprocess_block(&$variables) {
-    if ($variables['plugin_id'] == 'time_zone_block') {
-        $config = \Drupal::config('site_location.settings');
-        \Drupal::service('renderer')->addCacheableDependency($variables, $config);
-    }
- }
+function sb_site_location_preprocess_block(&$variables) {
+  if ($variables['plugin_id'] == 'sb_time_zone_block') {
+    $config = \Drupal::config('sb_site_location.settings');
+    \Drupal::service('renderer')->addCacheableDependency($variables, $config);
+  }
+
+}
