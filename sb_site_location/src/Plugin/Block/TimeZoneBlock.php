@@ -74,8 +74,15 @@ class TimeZoneBlock extends BlockBase implements ContainerFactoryPluginInterface
       $configuration, $plugin_id, $plugin_definition,
       $container->get('date.formatter'),
       $container->get('config.factory'),
-      $container->get('sb_site_location.timezone_manager'),
+      $container->get('sb_site_location.timezone_manager')
     );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheMaxAge() {
+    return 60;
   }
 
   /**
@@ -111,18 +118,8 @@ class TimeZoneBlock extends BlockBase implements ContainerFactoryPluginInterface
    * {@inheritdoc}
    */
   public function getCacheTags() {
-    $time = strtotime(now());
+    $time = strtotime(date("d-m-y h:i"));
     return Cache::mergeTags(parent::getCacheTags(), ['sbtimezone', $time]);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getCacheContexts() {
-    return Cache::mergeContexts(
-      parent::getCacheContexts(),
-      ['site_time']
-    );
   }
 
 }

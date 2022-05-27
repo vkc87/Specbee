@@ -19,3 +19,16 @@ function sb_site_location_theme($existing, $type, $theme, $path) {
     ],
   ];
 }
+
+/**
+ * Implements hook_preprocess_block.
+ */
+
+function sb_site_location_preprocess_block(&$variables) {
+  if ($variables['plugin_id'] == 'sb_time_zone_block') {
+    $config = \Drupal::config('sb_site_location.settings');
+    \Drupal::service('renderer')->addCacheableDependency($variables, $config);
+    $variables["#cache"]["max-age"] = 60;
+  }
+
+}

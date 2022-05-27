@@ -2,8 +2,3 @@ services:
   sb_site_location.timezone_manager:
     class: Drupal\sb_site_location\TimeZoneManager
     arguments: ["@date.formatter"]
-
-  cache_context.site_time:
-    class: Drupal\sb_site_location\CacheContext\SiteLocationCacheContext
-    tags:
-      - { name: cache.context }
