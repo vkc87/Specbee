@@ -42,7 +42,7 @@ class TimeZoneManager {
   public function getTime($timezone = NULL) {
     if (!empty($timezone)) {
       $date = strtotime(date('m/d/Y h:i:s a', time()));
-      $formatted_time = $this->dateFormatter->format($date,'custom', 'jS M Y h:i A ', $timezone);
+      $formatted_time = $this->dateFormatter->format($date,'custom', 'jS M Y - h:i A ', $timezone);
 
       return $formatted_time;
     }

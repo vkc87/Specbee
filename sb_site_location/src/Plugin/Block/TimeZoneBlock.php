@@ -111,14 +111,18 @@ class TimeZoneBlock extends BlockBase implements ContainerFactoryPluginInterface
    * {@inheritdoc}
    */
   public function getCacheTags() {
-    return Cache::mergeTags(parent::getCacheTags(), ['sbtimezone']);
+    $time = strtotime(now());
+    return Cache::mergeTags(parent::getCacheTags(), ['sbtimezone', $time]);
   }
 
   /**
    * {@inheritdoc}
    */
   public function getCacheContexts() {
-    return Cache::mergeContexts(parent::getCacheContexts(), ['route']);
+    return Cache::mergeContexts(
+      parent::getCacheContexts(),
+      ['site_time']
+    );
   }
 
 }
